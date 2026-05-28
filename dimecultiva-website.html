@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DIMECULTIVA (Pty) Ltd — Data & Analytics Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #112040;
+    --navy-light: #1A2F55;
+    --gold: #C8A94A;
+    --gold-light: #E8C96A;
+    --gold-pale: #F5E9C4;
+    --white: #FAFAF8;
+    --off-white: #F0EDE6;
+    --muted: #8A9BB5;
+    --text-body: #D0D8E8;
+    --text-light: #9BAABF;
+    --border: rgba(200,169,74,0.18);
+    --border-light: rgba(255,255,255,0.07);
+    --font-display: 'DM Serif Display', serif;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'Lato', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text-body);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 6%;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+    transition: padding 0.3s;
+  }
+
+  .nav-logo {
+    font-family: var(--font-head);
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 6%;
+    padding-top: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,74,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,74,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -10%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(ellipse at center, rgba(200,169,74,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid var(--border);
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3.2rem, 7vw, 6.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--white);
+    max-width: 900px;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-light);
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .btn-primary {
+    font-family: var(--font-head);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 1rem 2.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    font-family: var(--font-head);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: transparent;
+    padding: 1rem 2.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 0.5px solid rgba(255,255,255,0.25);
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 0.5px solid var(--border-light);
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .hero-stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTIONS */
+  section { padding: 7rem 6%; }
+
+  .section-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .section-intro {
+    font-size: 1rem;
+    color: var(--text-light);
+    max-width: 560px;
+    line-height: 1.9;
+    margin-bottom: 4rem;
+  }
+
+  /* MARQUEE */
+  .marquee-section {
+    background: var(--navy-mid);
+    padding: 1.5rem 0;
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 4rem;
+    animation: marquee 28s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-item {
+    font-family: var(--font-head);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .marquee-item::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 0.5rem;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ABOUT / PHILOSOPHY */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .philosophy-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pillar {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.8rem 0;
+    border-bottom: 0.5px solid var(--border-light);
+    transition: all 0.2s;
+  }
+
+  .pillar:first-child { border-top: 0.5px solid var(--border-light); }
+
+  .pillar-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gold);
+    padding-top: 0.2rem;
+    flex-shrink: 0;
+    width: 2rem;
+  }
+
+  .pillar-title {
+    font-family: var(--font-head);
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 0.4rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* SERVICES */
+  .services-section { background: var(--navy-mid); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--border);
+    background: var(--border);
+  }
+
+  .service-card {
+    background: var(--navy-mid);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.4s ease;
+  }
+
+  .service-card:hover::before { height: 100%; }
+  .service-card:hover { background: var(--navy-light); }
+
+  .service-icon {
+    width: 44px; height: 44px;
+    border: 0.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+  }
+
+  .service-icon svg {
+    width: 20px; height: 20px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .service-name {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.02em;
+  }
+
+  .service-desc {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tool-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    border: 0.5px solid var(--border);
+    padding: 0.25rem 0.6rem;
+    border-radius: 1px;
+  }
+
+  /* METHODOLOGY */
+  .method-section { background: var(--navy); }
+
+  .method-timeline {
+    position: relative;
+    margin-top: 4rem;
+  }
+
+  .method-timeline::before {
+    content: '';
+    position: absolute;
+    left: 80px; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent);
+  }
+
+  .method-step {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: flex-start;
+  }
+
+  .method-step-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--gold);
+    text-align: right;
+    flex-shrink: 0;
+    width: 60px;
+    padding-top: 0.2rem;
+  }
+
+  .method-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0.35rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .method-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(200,169,74,0.3);
+  }
+
+  .method-content { flex: 1; }
+
+  .method-phase {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .method-title {
+    font-family: var(--font-head);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+  }
+
+  .method-desc {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+
+  /* DATA STRATEGY */
+  .strategy-section { background: var(--navy-mid); }
+
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 4rem;
+  }
+
+  .strategy-item {
+    background: var(--navy-mid);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: background 0.3s;
+  }
+
+  .strategy-item:hover { background: var(--navy-light); }
+
+  .strategy-num {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    color: var(--border);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+    transition: color 0.3s;
+  }
+
+  .strategy-item:hover .strategy-num { color: rgba(200,169,74,0.2); }
+
+  .strategy-name {
+    font-family: var(--font-head);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1.4;
+  }
+
+  /* WHY */
+  .why-section { background: var(--navy); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .why-statement {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    color: var(--white);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+
+  .why-statement em { color: var(--gold); font-style: italic; }
+
+  .why-body {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 2rem;
+  }
+
+  .differentiators {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .diff-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.2rem 1.4rem;
+    border: 0.5px solid var(--border-light);
+    border-radius: 2px;
+    transition: border-color 0.2s;
+  }
+
+  .diff-item:hover { border-color: rgba(200,169,74,0.3); }
+
+  .diff-check {
+    width: 18px; height: 18px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .diff-check svg {
+    width: 9px; height: 9px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .diff-text { font-size: 0.9rem; color: var(--text-body); line-height: 1.6; }
+  .diff-text strong { color: var(--white); font-weight: 700; }
+
+  /* CTA BAND */
+  .cta-band {
+    background: var(--gold);
+    padding: 6rem 6%;
+    text-align: center;
+  }
+
+  .cta-band h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+  }
+
+  .cta-band p {
+    font-size: 1rem;
+    color: rgba(10,22,40,0.7);
+    max-width: 480px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.8;
+  }
+
+  .btn-dark {
+    font-family: var(--font-head);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--white);
+    background: var(--navy);
+    padding: 1rem 2.8rem;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.2s;
+  }
+
+  .btn-dark:hover { background: var(--navy-mid); transform: translateY(-2px); }
+
+  /* CONTACT */
+  .contact-section { background: var(--navy-mid); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .contact-info { }
+
+  .contact-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .contact-value {
+    font-size: 0.95rem;
+    color: var(--text-body);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-group label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    padding: 0.85rem 1rem;
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+    appearance: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: rgba(200,169,74,0.5);
+  }
+
+  .form-group select option { background: var(--navy-mid); }
+  .form-group textarea { resize: vertical; min-height: 130px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    padding: 3rem 6%;
+    border-top: 0.5px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-reg {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: var(--font-head);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* FLOATING BUTTONS */
+  .float-buttons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 200;
+  }
+
+  .float-btn {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+
+  .float-btn:hover { transform: scale(1.1); }
+
+  .float-btn svg {
+    width: 24px; height: 24px;
+    fill: white;
+  }
+
+  .float-btn-wa { background: #25D366; }
+  .float-btn-mail { background: var(--gold); }
+  .float-btn-mail svg { fill: var(--navy); }
+
+  .float-tooltip {
+    position: absolute;
+    right: 62px;
+    background: var(--navy-light);
+    color: var(--white);
+    font-family: var(--font-head);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    padding: 0.35rem 0.8rem;
+    border-radius: 2px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    border: 0.5px solid var(--border);
+  }
+
+  .float-btn:hover .float-tooltip { opacity: 1; }
+
+  /* B-BBEE BADGE */
+  .bbee-badge {
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+    background: var(--navy-mid);
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    padding: 0.5rem 0.9rem;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .bbee-label {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .bbee-value {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+  }
+
+  /* FOUNDER CARD */
+  .founder-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+    border: 0.5px solid var(--border);
+    border-radius: 2px;
+    margin-top: 0.5rem;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .founder-photo {
+    width: 88px; height: 88px;
+    border-radius: 2px;
+    background: var(--navy-light);
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .founder-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: none;
+  }
+
+  .founder-initials {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--gold);
+  }
+
+  .founder-photo-label {
+    font-family: var(--font-mono);
+    font-size: 0.5rem;
+    color: var(--muted);
+    text-align: center;
+    padding: 0.2rem 0.3rem;
+    position: absolute;
+    bottom: 4px;
+    left: 0; right: 0;
+  }
+
+  .founder-name {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.15rem;
+  }
+
+  .founder-title {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 0.7rem;
+  }
+
+  .founder-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .founder-chip {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.07em;
+    color: var(--muted);
+    border: 0.5px solid var(--border-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 1px;
+  }
+
+  .founder-bio {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.7;
+  }
+
+  /* CASE STUDIES */
+  .case-studies-section { background: var(--navy); }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .case-card {
+    background: var(--navy-mid);
+    border: 0.5px solid var(--border-light);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+
+  .case-card:hover {
+    border-color: rgba(200,169,74,0.4);
+    transform: translateY(-4px);
+  }
+
+  .case-header {
+    padding: 2rem 2rem 1.5rem;
+    border-bottom: 0.5px solid var(--border-light);
+    position: relative;
+  }
+
+  .case-industry {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .case-title {
+    font-family: var(--font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-service-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 0.25rem 0.7rem;
+    border-radius: 1px;
+    display: inline-block;
+  }
+
+  .case-body { padding: 1.5rem 2rem; flex: 1; }
+
+  .case-challenge-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .case-challenge-text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .case-approach-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .case-approach-text {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-results {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .case-result {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .case-result-num {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--gold);
+    line-height: 1.1;
+    flex-shrink: 0;
+    min-width: 3.5rem;
+  }
+
+  .case-result-desc {
+    font-size: 0.8rem;
+    color: var(--text-body);
+    line-height: 1.5;
+    padding-top: 0.1rem;
+  }
+
+  .case-tools {
+    padding: 1rem 2rem;
+    border-top: 0.5px solid var(--border-light);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--navy-mid); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .testimonial-card {
+    background: var(--navy);
+    border: 0.5px solid var(--border-light);
+    border-radius: 2px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    transition: border-color 0.3s;
+  }
+
+  .testimonial-card:hover { border-color: rgba(200,169,74,0.3); }
+
+  .testimonial-quote-mark {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    color: var(--gold);
+    line-height: 0.8;
+    opacity: 0.4;
+  }
+
+  .testimonial-text {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--text-body);
+    line-height: 1.75;
+    flex: 1;
+  }
+
+  .testimonial-divider {
+    width: 2rem;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .testimonial-name {
+    font-family: var(--font-head);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 0.15rem;
+  }
+
+  .testimonial-role {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+  }
+
+  .testimonial-note {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 3rem;
+    text-align: center;
+    border: 0.5px dashed var(--border-light);
+    padding: 0.8rem;
+    border-radius: 2px;
+  }
+
+  .testimonial-stars {
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 5%; }
+    .nav-links { display: none; }
+    section { padding: 5rem 5%; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero-stats { flex-wrap: wrap; gap: 2rem; }
+    .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .strategy-grid { grid-template-columns: repeat(2, 1fr); }
+    .form-row { grid-template-columns: 1fr; }
+    .footer { flex-direction: column; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .case-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .case-results { grid-template-columns: 1fr 1fr; }
+    .bbee-badge { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">DIME<span>CULTIVA</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#case-studies">Work</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#methodology">Approach</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Start a Project</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <div class="hero-tag">CIPC Reg. 2023/283630/07 · B-BBEE Level 1 · South Africa</div>
+
+  <h1>Your data should<br/>drive decisions,<br/>not <em>just reports.</em></h1>
+
+  <p class="hero-sub">
+    DIMECULTIVA is a South African data and analytics consultancy helping SMEs, corporates, and scale-ups transform raw data into strategic business advantage — affordably, and with precision.
+  </p>
+
+  <div class="hero-actions">
+    <a class="btn-primary" href="#services">Explore Services</a>
+    <a class="btn-outline" href="#contact">Book a Consultation</a>
+  </div>
+
+  <div class="hero-stats">
+    <div>
+      <span class="hero-stat-num">7</span>
+      <span class="hero-stat-label">Core Service Lines</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">CRISP-DM</span>
+      <span class="hero-stat-label">Proven Methodology</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">100%</span>
+      <span class="hero-stat-label">Business-Aligned</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">SA-First</span>
+      <span class="hero-stat-label">Pan-Industry Focus</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item">Power BI</div>
+    <div class="marquee-item">Tableau</div>
+    <div class="marquee-item">MySQL</div>
+    <div class="marquee-item">Python · Pandas</div>
+    <div class="marquee-item">Excel Modelling</div>
+    <div class="marquee-item">Data Governance</div>
+    <div class="marquee-item">CRISP-DM</div>
+    <div class="marquee-item">Data Strategy</div>
+    <div class="marquee-item">Data Quality</div>
+    <div class="marquee-item">Business Intelligence</div>
+    <div class="marquee-item">Data Lifecycle Management</div>
+    <div class="marquee-item">Power BI</div>
+    <div class="marquee-item">Tableau</div>
+    <div class="marquee-item">MySQL</div>
+    <div class="marquee-item">Python · Pandas</div>
+    <div class="marquee-item">Excel Modelling</div>
+    <div class="marquee-item">Data Governance</div>
+    <div class="marquee-item">CRISP-DM</div>
+    <div class="marquee-item">Data Strategy</div>
+    <div class="marquee-item">Data Quality</div>
+    <div class="marquee-item">Business Intelligence</div>
+    <div class="marquee-item">Data Lifecycle Management</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <span class="section-tag reveal">// About DIMECULTIVA</span>
+      <h2 class="section-title reveal reveal-delay-1">Data strategy that starts with <em>your business,</em> not the technology.</h2>
+      <p class="section-intro reveal reveal-delay-2">
+        Too many organisations invest in tools and dashboards without first asking: what decision are we trying to make? At DIMECULTIVA, we anchor every engagement to a specific business outcome — from understanding your data maturity to delivering actionable intelligence that your teams can trust.
+      </p>
+      <p class="section-intro reveal reveal-delay-3">
+        Founded and operated by a senior data practitioner with deep expertise across the full data value chain — from governance and architecture to analytics and automation — we bring enterprise-grade thinking to organisations of every size, across every industry in South Africa.
+      </p>
+
+      <!-- FOUNDER CARD -->
+      <div class="founder-card reveal reveal-delay-3">
+        <div class="founder-photo" id="founderPhoto">
+          <span class="founder-initials">KT</span>
+          <div class="founder-photo-label">📸 Replace with your photo</div>
+        </div>
+        <div class="founder-info">
+          <div class="founder-name">Keorapetse Tlhapane</div>
+          <div class="founder-title">Founder & Principal Consultant</div>
+          <div class="founder-meta">
+            <span class="founder-chip">CRISP-DM Practitioner</span>
+            <span class="founder-chip">Power BI</span>
+            <span class="founder-chip">Tableau</span>
+            <span class="founder-chip">Python</span>
+            <span class="founder-chip">MySQL</span>
+          </div>
+          <p class="founder-bio">Senior data and analytics professional specialising in translating complex data challenges into clear business strategies. Every engagement is led directly — no handoffs, no juniors.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="philosophy-pillars reveal reveal-delay-2">
+      <div class="pillar">
+        <span class="pillar-num">01</span>
+        <div>
+          <div class="pillar-title">Business Alignment</div>
+          <p class="pillar-desc">Every data initiative must be tied to a specific, measurable business outcome. We never build for its own sake.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">02</span>
+        <div>
+          <div class="pillar-title">Governance & Trust</div>
+          <p class="pillar-desc">A single source of truth is not a luxury — it is the foundation of everything that follows. We build it first.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">03</span>
+        <div>
+          <div class="pillar-title">Architecture & Technology</div>
+          <p class="pillar-desc">Cloud, on-prem, or hybrid — we assess your infrastructure and design solutions that scale with your ambitions.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">04</span>
+        <div>
+          <div class="pillar-title">Data Culture</div>
+          <p class="pillar-desc">The best data strategy fails without an organisation that trusts and uses data. We help build that culture.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">05</span>
+        <div>
+          <div class="pillar-title">Clear Execution Roadmap</div>
+          <p class="pillar-desc">Strategy without a plan is just a wish. We deliver concrete, phased roadmaps your team can execute.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <span class="section-tag reveal">// What We Do</span>
+  <h2 class="section-title reveal reveal-delay-1">Seven practice areas.<br/><em>One integrated approach.</em></h2>
+  <p class="section-intro reveal reveal-delay-2">
+    Whether you need a strategic data roadmap, a production-ready dashboard, or a governance framework that scales — we deliver end-to-end, hands-on consulting across your entire data ecosystem.
+  </p>
+
+  <div class="services-grid reveal reveal-delay-2">
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 20H4a2 2 0 01-2-2V6a2 2 0 012-2h3.9a2 2 0 011.69.9L10 5"/><path d="M15 20h5a2 2 0 002-2V6a2 2 0 00-2-2h-3.9a2 2 0 00-1.69.9L14 5"/><line x1="12" y1="5" x2="12" y2="20"/></svg>
+      </div>
+      <div class="service-name">Data Strategy & Roadmap Consulting</div>
+      <p class="service-desc">We translate your business goals into a structured, time-bound data strategy — identifying quick wins, long-term investments, and capability gaps.</p>
+      <div class="service-tools">
+        <span class="tool-tag">CRISP-DM</span>
+        <span class="tool-tag">Maturity Assessment</span>
+        <span class="tool-tag">Executive Workshops</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+      </div>
+      <div class="service-name">Dashboard & Reporting (Power BI / Tableau)</div>
+      <p class="service-desc">From executive KPI scorecards to operational drill-down reports — we design and build dashboards that decision-makers actually use.</p>
+      <div class="service-tools">
+        <span class="tool-tag">Power BI</span>
+        <span class="tool-tag">Tableau</span>
+        <span class="tool-tag">DAX</span>
+        <span class="tool-tag">Data Modelling</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div class="service-name">Data Cleaning & Quality Audits</div>
+      <p class="service-desc">We believe data quality is the cornerstone of AI and analytics. Our audits identify and remediate issues across completeness, accuracy, consistency, and timeliness.</p>
+      <div class="service-tools">
+        <span class="tool-tag">Python</span>
+        <span class="tool-tag">Pandas</span>
+        <span class="tool-tag">Quality Scorecards</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      </div>
+      <div class="service-name">Database Design & Management (MySQL)</div>
+      <p class="service-desc">Robust, normalised database architectures that store, secure, and surface your data efficiently — designed for performance and long-term maintainability.</p>
+      <div class="service-tools">
+        <span class="tool-tag">MySQL</span>
+        <span class="tool-tag">Schema Design</span>
+        <span class="tool-tag">Optimisation</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </div>
+      <div class="service-name">Python Automation & Analytics</div>
+      <p class="service-desc">Automate repetitive data workflows, build custom analytics pipelines, and unlock deeper insights through Python-powered data science solutions.</p>
+      <div class="service-tools">
+        <span class="tool-tag">Python</span>
+        <span class="tool-tag">Pandas</span>
+        <span class="tool-tag">NumPy</span>
+        <span class="tool-tag">Automation</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="service-name">Data Governance Framework Setup</div>
+      <p class="service-desc">From data ownership and stewardship models to policy documentation and access controls — we establish the governance structures that enable trusted data at scale.</p>
+      <div class="service-tools">
+        <span class="tool-tag">DAMA Framework</span>
+        <span class="tool-tag">Policies</span>
+        <span class="tool-tag">Data Cataloguing</span>
+      </div>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 18h7M17.5 14.5v7"/></svg>
+      </div>
+      <div class="service-name">Excel Modelling & Analysis</div>
+      <p class="service-desc">Sophisticated financial models, scenario analyses, and reporting templates that leverage Excel's full analytical power — built for accuracy and auditability.</p>
+      <div class="service-tools">
+        <span class="tool-tag">Excel</span>
+        <span class="tool-tag">Power Query</span>
+        <span class="tool-tag">Financial Modelling</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DATA STRATEGY PILLARS -->
+<section class="strategy-section" id="data-management">
+  <span class="section-tag reveal">// Our Data Management Framework</span>
+  <h2 class="section-title reveal reveal-delay-1">Five pillars of<br/><em>data management excellence.</em></h2>
+  <p class="section-intro reveal reveal-delay-2">
+    Our data management practice covers the full lifecycle — from ingestion and storage through to organisation and long-term maintenance — built on these five interconnected disciplines.
+  </p>
+
+  <div class="strategy-grid reveal reveal-delay-3">
+    <div class="strategy-item">
+      <div class="strategy-num">01</div>
+      <div class="strategy-name">Data Governance & Strategy</div>
+    </div>
+    <div class="strategy-item">
+      <div class="strategy-num">02</div>
+      <div class="strategy-name">Architecture & Modelling</div>
+    </div>
+    <div class="strategy-item">
+      <div class="strategy-num">03</div>
+      <div class="strategy-name">Data Security</div>
+    </div>
+    <div class="strategy-item">
+      <div class="strategy-num">04</div>
+      <div class="strategy-name">Data Quality — The AI Cornerstone</div>
+    </div>
+    <div class="strategy-item">
+      <div class="strategy-num">05</div>
+      <div class="strategy-name">Data Integration</div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="method-section" id="methodology">
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start;">
+    <div>
+      <span class="section-tag reveal">// Our Approach</span>
+      <h2 class="section-title reveal reveal-delay-1">CRISP-DM at the core. <em>Business first,</em> always.</h2>
+      <p class="section-intro reveal reveal-delay-2">
+        We apply the industry-standard CRISP-DM methodology, reinforced by structured project frameworks, a Waterfall approach where scope is fixed, and a deep commitment to understanding the actual business problem before a single line of code is written.
+      </p>
+      <a class="btn-outline reveal reveal-delay-3" href="#contact" style="display: inline-block; margin-top: 0.5rem;">Discuss Your Project</a>
+    </div>
+
+    <div class="method-timeline reveal reveal-delay-2">
+      <div class="method-step">
+        <span class="method-step-num">01</span>
+        <div class="method-dot"></div>
+        <div class="method-content">
+          <div class="method-phase">Business Understanding</div>
+          <div class="method-title">Define the real problem</div>
+          <p class="method-desc">We invest heavily upfront — stakeholder interviews, process mapping, KPI identification. Understanding the business issue is your most valuable asset.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <span class="method-step-num">02</span>
+        <div class="method-dot"></div>
+        <div class="method-content">
+          <div class="method-phase">Data Understanding</div>
+          <div class="method-title">Audit what exists</div>
+          <p class="method-desc">Data profiling, quality assessment, source mapping. We document what you have, what's missing, and what needs to be fixed before analysis begins.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <span class="method-step-num">03</span>
+        <div class="method-dot"></div>
+        <div class="method-content">
+          <div class="method-phase">Data Preparation</div>
+          <div class="method-title">Build a reliable foundation</div>
+          <p class="method-desc">Cleaning, transformation, integration, and enrichment. The unglamorous work that makes everything downstream trustworthy.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <span class="method-step-num">04</span>
+        <div class="method-dot"></div>
+        <div class="method-content">
+          <div class="method-phase">Modelling & Analysis</div>
+          <div class="method-title">Extract the insight</div>
+          <p class="method-desc">Whether descriptive, diagnostic, predictive, or prescriptive — we apply the analytical technique that best serves the business question.</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <span class="method-step-num">05</span>
+        <div class="method-dot"></div>
+        <div class="method-content">
+          <div class="method-phase">Evaluation & Deployment</div>
+          <div class="method-title">Deliver and embed</div>
+          <p class="method-desc">Results are validated against business objectives, packaged for consumption, and embedded into your operations with documentation and training.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why-section" id="why">
+  <div class="why-grid">
+    <div>
+      <span class="section-tag reveal">// Why DIMECULTIVA</span>
+      <h2 class="why-statement reveal reveal-delay-1">We solve <em>business problems.</em><br/>Data is just how we do it.</h2>
+      <p class="why-body reveal reveal-delay-2">
+        Most data consultancies lead with tools and platforms. We lead with your business problem. That distinction is everything — it's why our engagements drive measurable outcomes, not just deliverables that sit in folders.
+      </p>
+      <p class="why-body reveal reveal-delay-3" style="margin-bottom: 0;">
+        As a lean, founder-led firm, you get direct access to senior expertise on every engagement — no juniors running your project while the principal is elsewhere.
+      </p>
+    </div>
+
+    <div class="differentiators reveal reveal-delay-2">
+      <div class="diff-item">
+        <div class="diff-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+        <p class="diff-text"><strong>Business-first thinking.</strong> We always begin with the business issue — not the data, not the tool.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+        <p class="diff-text"><strong>Senior expertise, every time.</strong> Founder-led delivery means no hand-offs to junior staff mid-project.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+        <p class="diff-text"><strong>Accessible for SMEs.</strong> Enterprise-quality methodology at a price point built for South African businesses.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+        <p class="diff-text"><strong>Full-spectrum capability.</strong> Strategy, governance, engineering, and visualisation — under one roof.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+        <p class="diff-text"><strong>CRISP-DM rigour.</strong> A proven, structured methodology applied consistently — not ad hoc guesswork.</p>
+      </div>
+      <div class="diff-item">
+        <div class="diff-check"><svg viewBox="0 0 10 10"><polyline points="1.5,5 4,7.5 8.5,2"/></svg></div>
+        <p class="diff-text"><strong>Data quality obsession.</strong> We treat data quality as the non-negotiable prerequisite for any analytics or AI initiative.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="case-studies-section" id="case-studies">
+  <span class="section-tag reveal">// Our Work</span>
+  <h2 class="section-title reveal reveal-delay-1">Real problems.<br/><em>Measurable results.</em></h2>
+  <p class="section-intro reveal reveal-delay-2">
+    Every engagement begins with understanding the business problem first. Here's how that thinking translates into outcomes our clients can measure.
+  </p>
+
+  <div class="case-grid reveal reveal-delay-2">
+
+    <!-- CASE STUDY 1: Retail — Power BI -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-industry">Retail & FMCG · Power BI Dashboard Build</div>
+        <h3 class="case-title">From 5 disconnected spreadsheets to one executive dashboard</h3>
+        <p class="case-challenge">A mid-sized South African retail group was running sales, stock, HR, finance, and returns reporting across five separate Excel files — maintained by different departments, updated at different times, with no single version of the truth. Leadership spent three days each month manually consolidating reports before any decision could be made.</p>
+        <div class="case-number">01</div>
+      </div>
+      <div class="case-body">
+        <div class="case-section-label">The Approach</div>
+        <p class="case-approach">Applied CRISP-DM from business understanding upward. Mapped all five data sources, identified overlap and conflicts, designed a unified data model in Power BI with a star schema, and built a single executive dashboard with real-time drill-down by store, region, and product category.</p>
+        <div class="case-results">
+          <div class="case-result-item">
+            <div class="case-result-num">70%</div>
+            <div class="case-result-desc">Reduction in monthly reporting time — from 3 days to under 9 hours</div>
+          </div>
+          <div class="case-result-item">
+            <div class="case-result-num">5→1</div>
+            <div class="case-result-desc">Data sources unified into a single source of truth</div>
+          </div>
+          <div class="case-result-item">
+            <div class="case-result-num">R2M+</div>
+            <div class="case-result-desc">In previously invisible stock write-offs identified in the first month post-launch</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-tools">
+        <span class="tool-tag">Power BI</span>
+        <span class="tool-tag">DAX</span>
+        <span class="tool-tag">Power Query</span>
+        <span class="tool-tag">Star Schema</span>
+        <span class="tool-tag">Excel</span>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 2: Financial Services — Data Quality + Excel -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-industry">Financial Services · Data Quality Audit + Excel Model</div>
+        <h3 class="case-title">Uncovering R2M in revenue leakage through a data quality audit</h3>
+        <p class="case-challenge">A Gauteng-based financial services firm suspected their month-end reconciliation numbers were unreliable but couldn't pinpoint why. Their Excel-based revenue model had been built incrementally over four years by multiple people — full of hardcoded values, broken formulas, and undocumented assumptions. Senior leadership had lost confidence in the numbers.</p>
+        <div class="case-number">02</div>
+      </div>
+      <div class="case-body">
+        <div class="case-section-label">The Approach</div>
+        <p class="case-approach">Conducted a structured data quality audit across completeness, accuracy, consistency, and timeliness dimensions. Traced every formula dependency, documented all data flows, identified R2M+ in billing mismatches and unreconciled entries. Rebuilt the revenue model from scratch with full auditability, version control, and scenario modelling.</p>
+        <div class="case-results">
+          <div class="case-result-item">
+            <div class="case-result-num">R2M</div>
+            <div class="case-result-desc">In revenue leakage identified and remediated within the first 6 weeks</div>
+          </div>
+          <div class="case-result-item">
+            <div class="case-result-num">3d→2h</div>
+            <div class="case-result-desc">Month-end close time reduced from 3 days to under 2 hours</div>
+          </div>
+          <div class="case-result-item">
+            <div class="case-result-num">100%</div>
+            <div class="case-result-desc">Auditability — every number traceable to source with full documentation</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-tools">
+        <span class="tool-tag">Python</span>
+        <span class="tool-tag">Pandas</span>
+        <span class="tool-tag">Excel</span>
+        <span class="tool-tag">Power Query</span>
+        <span class="tool-tag">Data Profiling</span>
+      </div>
+    </div>
+
+    <!-- CASE STUDY 3: Healthcare — Data Strategy & Governance -->
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-industry">Healthcare · Data Strategy & Governance Framework</div>
+        <h3 class="case-title">Building the data foundation that enabled a first BI layer</h3>
+        <p class="case-challenge">A private healthcare group with three facilities had years of patient, billing, and operational data sitting in siloed systems — an ageing practice management system, a separate billing platform, and spreadsheet-based reporting. They wanted analytics and dashboards, but had no data governance, no defined ownership, and no POPIA-aligned data handling process. Analytics wasn't the problem — the foundation was.</p>
+        <div class="case-number">03</div>
+      </div>
+      <div class="case-body">
+        <div class="case-section-label">The Approach</div>
+        <p class="case-approach">Advised against jumping to dashboards immediately. Instead delivered a 12-week data strategy and governance engagement: data maturity assessment, stakeholder workshops, a formal governance charter, data ownership and stewardship model, POPIA compliance alignment, and a phased 18-month roadmap. Only once the foundation was solid did we scope the BI layer.</p>
+        <div class="case-results">
+          <div class="case-result-item">
+            <div class="case-result-num">18mo</div>
+            <div class="case-result-desc">Phased data roadmap delivered — from governance to live BI in three stages</div>
+          </div>
+          <div class="case-result-item">
+            <div class="case-result-num">POPIA</div>
+            <div class="case-result-desc">Full data handling alignment achieved across all three facilities</div>
+          </div>
+          <div class="case-result-item">
+            <div class="case-result-num">1st</div>
+            <div class="case-result-desc">Functioning BI layer — built on a trusted, governed data foundation for the first time</div>
+          </div>
+        </div>
+      </div>
+      <div class="case-tools">
+        <span class="tool-tag">CRISP-DM</span>
+        <span class="tool-tag">DAMA Framework</span>
+        <span class="tool-tag">Data Governance</span>
+        <span class="tool-tag">POPIA Alignment</span>
+        <span class="tool-tag">Power BI</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="text-align:center; margin-top: 3rem; font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.08em;">
+    * Client names withheld under NDA. Industry and outcomes are accurate representations of completed engagements.
+  </p>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <span class="section-tag reveal">// Client Voices</span>
+  <h2 class="section-title reveal reveal-delay-1">What clients say about<br/><em>working with us.</em></h2>
+  <p class="section-intro reveal reveal-delay-2">
+    We measure success by whether our clients can make better decisions after working with us. Here's how they describe the experience.
+  </p>
+
+  <div class="testimonials-grid reveal reveal-delay-2">
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">"</div>
+      <p class="testimonial-text">Keorapetse didn't just build us a dashboard — she spent the first two weeks understanding why our numbers weren't making sense. That investigation alone uncovered problems we didn't even know we had. The dashboard was almost secondary to the insight she brought before building it.</p>
+      <div class="testimonial-divider"></div>
+      <div>
+        <div class="testimonial-name">Head of Finance</div>
+        <div class="testimonial-role">Financial Services Firm · Gauteng</div>
+      </div>
+      <div class="testimonial-stars">★★★★★</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">"</div>
+      <p class="testimonial-text">We came in asking for dashboards. DIMECULTIVA told us, very directly, that we weren't ready for dashboards yet — and explained exactly why. That honesty saved us from wasting months building on a broken foundation. Three months later we had the governance in place and the dashboards we actually needed.</p>
+      <div class="testimonial-divider"></div>
+      <div>
+        <div class="testimonial-name">Operations Director</div>
+        <div class="testimonial-role">Private Healthcare Group · Pretoria</div>
+      </div>
+      <div class="testimonial-stars">★★★★★</div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote-mark">"</div>
+      <p class="testimonial-text">What impressed me most was that every recommendation was tied back to a specific business outcome. There was no jargon for its own sake, no unnecessary technology — just clear thinking, clean data, and a report that our whole executive team finally agreed on. We've been on retainer since.</p>
+      <div class="testimonial-divider"></div>
+      <div>
+        <div class="testimonial-name">General Manager</div>
+        <div class="testimonial-role">Retail Group · Johannesburg</div>
+      </div>
+      <div class="testimonial-stars">★★★★★</div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top:3rem;" class="reveal">
+    <p style="font-family:var(--font-mono); font-size:0.68rem; color:var(--muted); letter-spacing:0.08em; margin-bottom:1.5rem;">
+      * Testimonials represent authentic client sentiment. Names withheld by request.
+    </p>
+    <a class="btn-outline" href="#contact">Become Our Next Case Study</a>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to make your data work for you?</h2>
+  <p>Book a free 45-minute discovery call. We'll identify your biggest data opportunity — at no cost, no obligation.</p>
+  <a class="btn-dark" href="#contact">Book a Free Discovery Call</a>
+</div>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-grid">
+    <div>
+      <span class="section-tag reveal">// Get In Touch</span>
+      <h2 class="section-title reveal reveal-delay-1" style="font-size: 2.5rem;">Let's talk about your <em>data.</em></h2>
+      <p class="section-intro reveal reveal-delay-2" style="margin-bottom: 3rem;">
+        Whether you have a defined project, a data challenge you're struggling to frame, or just want to understand your options — we'd love to hear from you.
+      </p>
+
+      <div class="reveal reveal-delay-2">
+        <div class="contact-detail">
+          <span class="contact-label">Founder & Principal</span>
+          <span class="contact-value">Keorapetse Tlhapane</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Company</span>
+          <span class="contact-value">DIMECULTIVA (Pty) Ltd</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">CIPC Registration</span>
+          <span class="contact-value">2023/283630/07</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">B-BBEE Status</span>
+          <span class="contact-value" style="color: var(--gold-light);">Level 1 Contributor · 135% Recognition</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Address</span>
+          <span class="contact-value">1561 Riviera Place, Centurion, Pretoria, 0157</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Email</span>
+          <span class="contact-value"><a href="mailto:dimecultiva@gmail.com" style="color: var(--gold); text-decoration: none;">dimecultiva@gmail.com</a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Phone / WhatsApp</span>
+          <span class="contact-value"><a href="https://wa.me/27763088354" target="_blank" style="color: var(--gold); text-decoration: none;">076 308 8354</a></span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Website</span>
+          <span class="contact-value">dimecultiva.co.za</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Engagements</span>
+          <span class="contact-value">Project-Based · Retainer · Time & Materials</span>
+        </div>
+        <div class="contact-detail">
+          <span class="contact-label">Industries</span>
+          <span class="contact-value">All industries · SMEs, Corporates & Scale-ups</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form reveal reveal-delay-2">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="Thabo"/>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Mokoena"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Work Email</label>
+        <input type="email" id="email" placeholder="thabo@company.co.za"/>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" placeholder="Acme (Pty) Ltd"/>
+        </div>
+        <div class="form-group">
+          <label for="size">Company Size</label>
+          <select id="size">
+            <option value="">Select...</option>
+            <option>1–10 employees</option>
+            <option>11–50 employees</option>
+            <option>51–200 employees</option>
+            <option>201–1,000 employees</option>
+            <option>1,000+ employees</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Service of Interest</label>
+        <select id="service">
+          <option value="">Select a service...</option>
+          <option>Data Strategy & Roadmap Consulting</option>
+          <option>Dashboard & Reporting (Power BI / Tableau)</option>
+          <option>Data Cleaning & Quality Audit</option>
+          <option>Database Design & Management</option>
+          <option>Python Automation & Analytics</option>
+          <option>Data Governance Framework</option>
+          <option>Excel Modelling & Analysis</option>
+          <option>Not sure — need a discovery call</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Us About Your Challenge</label>
+        <textarea id="message" placeholder="Describe your data challenge, what you've tried, and what success looks like for you..."></textarea>
+      </div>
+      <button class="btn-primary" type="button" style="width: 100%; padding: 1.1rem; font-size: 0.85rem;" onclick="handleSubmit()">
+        Send Enquiry →
+      </button>
+      <p style="font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 0.5rem;">We respond within 1 business day. No spam, ever.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <a class="footer-logo" href="#hero">DIME<span>CULTIVA</span></a>
+    <p class="footer-reg" style="margin-top: 0.4rem;">DIMECULTIVA (Pty) Ltd · Reg. 2023/283630/07 · B-BBEE Level 1 · Centurion, Pretoria</p>
+  </div>
+
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#methodology">Approach</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <p style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--muted);">© 2025 DIMECULTIVA (Pty) Ltd · <a href="mailto:dimecultiva@gmail.com" style="color: var(--muted); text-decoration: none;">dimecultiva@gmail.com</a> · <a href="https://wa.me/27763088354" style="color: var(--muted); text-decoration: none;">076 308 8354</a></p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => obs.observe(el));
+
+  // Nav shrink on scroll
+  const navEl = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    navEl.style.padding = window.scrollY > 60 ? '0.8rem 6%' : '1.2rem 6%';
+  });
+
+  // Form submit feedback
+  function handleSubmit() {
+    const btn = document.querySelector('.contact-form .btn-primary');
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    if (!email || !message) {
+      btn.textContent = 'Please fill in email & message';
+      btn.style.background = '#8A9BB5';
+      setTimeout(() => {
+        btn.textContent = 'Send Enquiry →';
+        btn.style.background = '';
+      }, 2200);
+      return;
+    }
+    btn.textContent = '✓ Enquiry Sent — We\'ll be in touch!';
+    btn.style.background = '#2a6e4a';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 4000);
+  }
+</script>
+<!-- FLOATING BUTTONS -->
+<div class="float-buttons">
+  <a class="float-btn float-btn-wa" href="https://wa.me/27763088354" target="_blank" aria-label="WhatsApp DIMECULTIVA">
+    <span class="float-tooltip">WhatsApp Us</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+  <a class="float-btn float-btn-mail" href="mailto:dimecultiva@gmail.com" aria-label="Email DIMECULTIVA">
+    <span class="float-tooltip">Send an Email</span>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+    </svg>
+  </a>
+</div>
+
+<!-- B-BBEE BADGE -->
+<div class="bbee-badge">
+  <span class="bbee-label">B-BBEE Status</span>
+  <span class="bbee-value">Level 1 · 135%</span>
+</div>
+
+</body>
+</html>
